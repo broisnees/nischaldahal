@@ -27,7 +27,7 @@ export const Route = createFileRoute("/llms.txt")({
 
         const text = `# Nischal Dahal
 
-> Full-stack engineer in Kathmandu, Nepal. @broisnees on GitHub and X. Personal site with projects and writing.
+> System architect in Kathmandu, Nepal. @broisnees on GitHub and X. Personal site with projects and writing.
 
 ## Pages
 

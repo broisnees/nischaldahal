@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     ...seo({
       description:
-        "Nischal Dahal (@broisnees) is a full-stack engineer in Kathmandu, Nepal, building tools like Stroke and writing about web development.",
+        "Nischal Dahal (@broisnees) is a system architect, AI engineer and UI/UX designer in Kathmandu, Nepal, building tools like Stroke and writing about web development.",
       path: "/",
       type: "profile",
     }),
@@ -28,8 +28,10 @@ function Home() {
       <div className="space-y-4 text-[1.0625rem]/[1.6] tracking-[-0.01em] text-pretty">
         <p>
           <strong className="font-[575] text-fg">
-            I’m an AI/ML-based full-stack engineer in Kathmandu.
-          </strong>{" "}
+            I’m a system architect and AI engineer in Kathmandu
+          </strong>
+          , and I design the whole thing, from the database schema to the last
+          pixel.
           Platform-agnostic, allergic to bloat, and I pipe things into{" "}
           <code className="code-inline">{"<(...)"}</code> for fun.
         </p>

@@ -38,7 +38,7 @@ export function seo({
 }: Seo) {
   const fullTitle = title
     ? `${title} | ${NAME}`
-    : `${NAME} · Full-stack engineer in Kathmandu`;
+    : `${NAME} · System architect in Kathmandu`;
   const url = absolute(path);
   const imageUrl = absolute(image);
   const alt = imageAlt ?? title ?? NAME;
@@ -98,7 +98,7 @@ export const PERSON = {
   alternateName: ["broisnees", "broisnischal"],
   url: SITE_URL,
   image: absolute("/avatar.jpg"),
-  jobTitle: "Full-stack engineer",
+  jobTitle: "System architect",
   worksFor: { "@type": "Organization", name: "AITC International" },
   address: {
     "@type": "PostalAddress",
@@ -119,7 +119,7 @@ export const WEBSITE = {
   "@id": WEBSITE_ID,
   url: SITE_URL,
   name: NAME,
-  description: "Projects and writing by Nischal Dahal, a full-stack engineer.",
+  description: "Projects and writing by Nischal Dahal, a system architect.",
   inLanguage: "en",
   publisher: { "@id": PERSON_ID },
 };

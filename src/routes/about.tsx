@@ -10,7 +10,7 @@ export const Route = createFileRoute("/about")({
     ...seo({
       title: "About",
       description:
-        "About Nischal Dahal (@broisnees): full-stack engineer at AITC International in Kathmandu, Nepal. The Mercury chatbot, backend, DevOps and the products I work on.",
+        "About Nischal Dahal (@broisnees): system architect at AITC International in Kathmandu, Nepal. The Mercury chatbot, backend, DevOps and the products I work on.",
       path: "/about",
       type: "profile",
     }),
@@ -68,6 +68,10 @@ const TIMELINE: {
 }[] = [
   {
     when: "Now",
+    title: "System architect",
+    body: "Designing the systems behind our products and leading teams across web, mobile and infra.",
+  },
+  {
     title: "Mercury chatbot and widgets",
     body: "Building the Mercury chatbot and the embeddable chat widgets that put it on other sites.",
     products: [P.mercury],
@@ -93,14 +97,14 @@ const TIMELINE: {
   {
     when: "2022",
     title: "Joined AITC International",
-    body: "As a full-stack engineer. Now I lead teams across web, mobile and infra.",
+    body: "As a full-stack engineer.",
   },
 ];
 
 function About() {
   return (
     <>
-      <PageHeader title="About" description="Full-stack engineer in Kathmandu.">
+      <PageHeader title="About" description="System architect in Kathmandu.">
         <Byline>
           <Fact>Kathmandu, Nepal</Fact>
         </Byline>
@@ -111,12 +115,13 @@ function About() {
           <strong className="font-[575] text-fg">@broisnees</strong> online.
         </p>
         <p>
-          Most of my work sits{" "}
+          I design{" "}
           <strong className="font-[575] text-fg">
-            between the API and the screen
+            how the pieces fit together
           </strong>
-          : serverless backends, type-safe frontends, Flutter apps, and the
-          infra that ships them.
+          : services and the data between them, AI features like the Mercury
+          chatbot, the web and Flutter apps on top, and the infra that ships
+          them.
         </p>
         <p>
           Part engineer, part romantic, quietly sophisticated, and an
@@ -126,7 +131,7 @@ function About() {
 
       <Section title="Work">
         <p className="-mt-2 mb-8 text-muted">
-          Full-stack engineer at{" "}
+          System architect at{" "}
           <span className="font-medium text-fg">AITC International</span>, 2022
           to now.
         </p>
