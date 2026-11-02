@@ -15,11 +15,7 @@ import {
   seo,
 } from "~/lib/seo";
 import { formatDate } from "~/lib/site";
-
-/** Slugs I've renamed, old to new, so shared links keep working. */
-const RENAMED: Record<string, string> = {
-  "hosting-mordern-application": "hosting-modern-applications",
-};
+import { MOVED_POSTS } from "~/lib/redirects";
 
 // Posts used to have an agent mode and a read mode. Old `?mode=` links still
 // parse; the page is the same either way.
@@ -30,14 +26,8 @@ const searchSchema = z.object({
 export const Route = createFileRoute("/writing/$slug")({
   validateSearch: searchSchema,
   beforeLoad: ({ params }) => {
-    const to = RENAMED[params.slug];
-    if (to) {
-      throw redirect({
-        to: "/writing/$slug",
-        params: { slug: to },
-        statusCode: 301,
-      });
-    }
+    const to = MOVED_POSTS[params.slug];
+    if (to) throw redirect({ href: to, statusCode: 301 });
   },
   // The MDX chunk for the post, and its Markdown up front so "Copy page" can
   // write to the clipboard in the same click.

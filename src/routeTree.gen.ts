@@ -20,9 +20,6 @@ import { Route as LlmsDottxtRouteImport } from './routes/llms[.]txt'
 import { Route as ResumeDotpdfRouteImport } from './routes/resume[.]pdf'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as BlogIndexRouteImport } from './routes/blog.index'
-import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
-import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
 import { Route as IngestSplatRouteImport } from './routes/ingest.$'
 import { Route as LCodeRouteImport } from './routes/l.$code'
 import { Route as PhotosIdRouteImport } from './routes/photos.$id'
@@ -87,21 +84,6 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogIndexRoute = BlogIndexRouteImport.update({
-  id: '/blog/',
-  path: '/blog/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/blog/$slug',
-  path: '/blog/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogsSlugRoute = BlogsSlugRouteImport.update({
-  id: '/blogs/$slug',
-  path: '/blogs/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IngestSplatRoute = IngestSplatRouteImport.update({
   id: '/ingest/$',
   path: '/ingest/$',
@@ -156,15 +138,12 @@ export interface FileRoutesByFullPath {
   '/resume.pdf': typeof ResumeDotpdfRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/blog/$slug': typeof BlogSlugRoute
-  '/blogs/$slug': typeof BlogsSlugRoute
   '/ingest/$': typeof IngestSplatRoute
   '/l/$code': typeof LCodeRoute
   '/photos/$id': typeof PhotosIdRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/writing/$slug': typeof WritingSlugRoute
   '/writing/{$slug}.md': typeof WritingChar123slugChar125DotmdRoute
-  '/blog/': typeof BlogIndexRoute
   '/projects/': typeof ProjectsIndexRoute
   '/writing/': typeof WritingIndexRoute
 }
@@ -180,15 +159,12 @@ export interface FileRoutesByTo {
   '/resume.pdf': typeof ResumeDotpdfRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/blog/$slug': typeof BlogSlugRoute
-  '/blogs/$slug': typeof BlogsSlugRoute
   '/ingest/$': typeof IngestSplatRoute
   '/l/$code': typeof LCodeRoute
   '/photos/$id': typeof PhotosIdRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/writing/$slug': typeof WritingSlugRoute
   '/writing/{$slug}.md': typeof WritingChar123slugChar125DotmdRoute
-  '/blog': typeof BlogIndexRoute
   '/projects': typeof ProjectsIndexRoute
   '/writing': typeof WritingIndexRoute
 }
@@ -205,15 +181,12 @@ export interface FileRoutesById {
   '/resume.pdf': typeof ResumeDotpdfRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/blog/$slug': typeof BlogSlugRoute
-  '/blogs/$slug': typeof BlogsSlugRoute
   '/ingest/$': typeof IngestSplatRoute
   '/l/$code': typeof LCodeRoute
   '/photos/$id': typeof PhotosIdRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/writing/$slug': typeof WritingSlugRoute
   '/writing/{$slug}.md': typeof WritingChar123slugChar125DotmdRoute
-  '/blog/': typeof BlogIndexRoute
   '/projects/': typeof ProjectsIndexRoute
   '/writing/': typeof WritingIndexRoute
 }
@@ -231,15 +204,12 @@ export interface FileRouteTypes {
     | '/resume.pdf'
     | '/robots.txt'
     | '/sitemap.xml'
-    | '/blog/$slug'
-    | '/blogs/$slug'
     | '/ingest/$'
     | '/l/$code'
     | '/photos/$id'
     | '/projects/$slug'
     | '/writing/$slug'
     | '/writing/{$slug}.md'
-    | '/blog/'
     | '/projects/'
     | '/writing/'
   fileRoutesByTo: FileRoutesByTo
@@ -255,15 +225,12 @@ export interface FileRouteTypes {
     | '/resume.pdf'
     | '/robots.txt'
     | '/sitemap.xml'
-    | '/blog/$slug'
-    | '/blogs/$slug'
     | '/ingest/$'
     | '/l/$code'
     | '/photos/$id'
     | '/projects/$slug'
     | '/writing/$slug'
     | '/writing/{$slug}.md'
-    | '/blog'
     | '/projects'
     | '/writing'
   id:
@@ -279,15 +246,12 @@ export interface FileRouteTypes {
     | '/resume.pdf'
     | '/robots.txt'
     | '/sitemap.xml'
-    | '/blog/$slug'
-    | '/blogs/$slug'
     | '/ingest/$'
     | '/l/$code'
     | '/photos/$id'
     | '/projects/$slug'
     | '/writing/$slug'
     | '/writing/{$slug}.md'
-    | '/blog/'
     | '/projects/'
     | '/writing/'
   fileRoutesById: FileRoutesById
@@ -304,15 +268,12 @@ export interface RootRouteChildren {
   ResumeDotpdfRoute: typeof ResumeDotpdfRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  BlogSlugRoute: typeof BlogSlugRoute
-  BlogsSlugRoute: typeof BlogsSlugRoute
   IngestSplatRoute: typeof IngestSplatRoute
   LCodeRoute: typeof LCodeRoute
   PhotosIdRoute: typeof PhotosIdRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   WritingSlugRoute: typeof WritingSlugRoute
   WritingChar123slugChar125DotmdRoute: typeof WritingChar123slugChar125DotmdRoute
-  BlogIndexRoute: typeof BlogIndexRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
   WritingIndexRoute: typeof WritingIndexRoute
 }
@@ -396,27 +357,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog/': {
-      id: '/blog/'
-      path: '/blog'
-      fullPath: '/blog/'
-      preLoaderRoute: typeof BlogIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog/$slug': {
-      id: '/blog/$slug'
-      path: '/blog/$slug'
-      fullPath: '/blog/$slug'
-      preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blogs/$slug': {
-      id: '/blogs/$slug'
-      path: '/blogs/$slug'
-      fullPath: '/blogs/$slug'
-      preLoaderRoute: typeof BlogsSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/ingest/$': {
       id: '/ingest/$'
       path: '/ingest/$'
@@ -488,15 +428,12 @@ const rootRouteChildren: RootRouteChildren = {
   ResumeDotpdfRoute: ResumeDotpdfRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  BlogSlugRoute: BlogSlugRoute,
-  BlogsSlugRoute: BlogsSlugRoute,
   IngestSplatRoute: IngestSplatRoute,
   LCodeRoute: LCodeRoute,
   PhotosIdRoute: PhotosIdRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   WritingSlugRoute: WritingSlugRoute,
   WritingChar123slugChar125DotmdRoute: WritingChar123slugChar125DotmdRoute,
-  BlogIndexRoute: BlogIndexRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
   WritingIndexRoute: WritingIndexRoute,
 }
