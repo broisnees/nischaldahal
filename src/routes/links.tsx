@@ -51,6 +51,8 @@ function Links() {
           <li key={p.name}>
             <a
               href={p.href}
+              target="_blank"
+              rel="noopener"
               className="group flex items-center gap-3.5 rounded-xl bg-surface px-4 py-3 shadow-hairline-inset transition-[background-color] duration-150 ease-out hover:bg-surface-hover"
             >
               <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-surface-hover text-fg shadow-hairline-inset">
