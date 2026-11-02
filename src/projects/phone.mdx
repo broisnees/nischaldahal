@@ -1,0 +1,33 @@
+---
+title: "phone: my rooted Nothing Phone (1)"
+published: 2026-11-02
+description: "Root log and recovery kit for my Nothing Phone (1): Magisk and LSPosed modules, a dialer and SMS app, Glyph Tweaks, and the stock images to get back."
+---
+
+phone is the root log and recovery kit for my Nothing Phone (1) (A063, Spacewar) on Nothing OS V3.2, an Android 15 build with no more OTAs coming. It holds every image, module and app I flashed, the source for the ones I wrote, and the exact steps to undo all of it.
+
+## What I wrote
+
+- **Glyph Tweaks**: a Glyph light app with a tappable zone diagram, a music visualizer across all 15 lights (Spectrum, Pulse, Orbit, Shockwave), volume and brightness shown on the lights, glyph-synced haptics, and press effects like Chase and Sparkle. About 11 MB of memory and 0.0% CPU when idle.
+- **Haptix**: an LSPosed module that adds haptics to the shade, quick settings tiles, notification dismiss, volume steps, app launch and the home gesture. It hooks state changes only, one effect per event, never per frame.
+- **Unscroll**: an LSPosed module that stops swiping to the next Short or Reel in YouTube, Instagram and Facebook. The one I opened still plays.
+- **MaxQ**: forces YouTube to the highest quality instead of Auto (verified 1440p60, was 720p60).
+- **Force120**: every app at 120 Hz.
+- **Talk**: my own dialer and SMS app in Kotlin and Compose, set as the default for both.
+- **NotifStyle**: a SystemUI overlay with rounder notification cards (28dp corners).
+- **Charge limit**: a Magisk module that pauses charging at 80% and resumes at 75%.
+- **Inter as the system font**, with a switcher to Roboto Flex or stock.
+- **AMOLED black**: a fabricated overlay with a boot script that puts it back when SystemUI regenerates its colors.
+
+## Root and recovery
+
+Root is Magisk 31.1 with Zygisk and Vector (LSPosed). A bootloop protector disables every module after three failed boots, and the stock `boot.img` for this exact build sits in the repo with its hash, so a bad flash is two `fastboot` commands away:
+
+```sh
+fastboot flash boot firmware/boot.img
+fastboot reboot
+```
+
+## Play Integrity
+
+Unlocking the bootloader on this phone switches the TEE to a keystore with no attestation key (`keystore2` error `-10003`). Since Android 13 every verdict needs hardware attestation, so everything came back UNEVALUATED. With TrickyStore and a keybox I got Basic, not Device or Strong, so Google Pay tap-to-pay is out. Local banking apps work through Magisk's DenyList.

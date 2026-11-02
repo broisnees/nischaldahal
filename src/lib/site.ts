@@ -318,6 +318,13 @@ export const PROJECTS: Item[] = [
       "Search npm, JSR, Deno and other registries from one MCP tool.",
     category: "mcp",
   },
+  {
+    name: "connect-mcp",
+    href: gh("connect-mcp"),
+    description:
+      "An MCP server that gives Claude a shell on my remote machines.",
+    category: "mcp",
+  },
 
   // Libraries
   {
@@ -420,19 +427,20 @@ export const PROJECTS: Item[] = [
       "git clone https://github.com/broisnees/tower ~/tower && cd ~/tower && make install",
   },
   {
-    name: "connect-mcp",
-    href: gh("connect-mcp"),
-    description:
-      "An MCP server that gives Claude a shell on my remote machines.",
-    category: "setup",
-  },
-  {
     name: "pcvison",
     href: gh("pcvison"),
     description:
       "Lets Claude see and drive my Linux desktop, and read what the machine is doing.",
     category: "setup",
     platforms: ["Linux"],
+  },
+  {
+    name: "phone",
+    href: gh("phone"),
+    description:
+      "My rooted Nothing Phone (1): Magisk and LSPosed modules, apps I wrote, and a recovery kit.",
+    category: "setup",
+    platforms: ["Android"],
   },
 ];
 
